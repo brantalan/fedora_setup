@@ -32,29 +32,6 @@ sudo flatpak install -y flathub de.haeckerfelix.Fragments
 sudo flatpak install -y flathub io.ente.auth
 sudo flatpak install -y flathub com.mattjakeman.ExtensionManager
 
-# Install Proton VPN
-wget "https://repo.protonvpn.com/fedora-$(cat /etc/fedora-release | cut -d' ' -f 3)-stable/protonvpn-stable-release/protonvpn-stable-release-1.0.2-1.noarch.rpm"
-
-# Import Proton VPN GPG keys to avoid prompt
-sudo rpm --import https://repo.protonvpn.com/fedora-$(cat /etc/fedora-release | cut -d' ' -f 3)-stable/protonvpn-stable-release/gpgkey
-
-# Install the Proton VPN repository and check for updates
-sudo dnf install -y ./protonvpn-stable-release-1.0.2-1.noarch.rpm && sudo dnf check-update --refresh
-
-# Install Proton VPN GNOME Desktop app
-sudo dnf install -y proton-vpn-gnome-desktop
-
-# Install system tray icon support (optional for Proton VPN)
-sudo dnf install -y libappindicator-gtk3
-
-# Install Proton Bridge
-wget "https://proton.me/download/bridge/protonmail-bridge-3.13.0-1.x86_64.rpm"
-sudo dnf install -y ./protonmail-bridge-3.13.0-1.x86_64.rpm
-
-# Install Proton Pass
-wget "https://proton.me/download/PassDesktop/linux/x64/ProtonPass.rpm"
-sudo dnf install -y ./ProtonPass.rpm
-
 # Install Ubuntu Sans and Ubuntu Sans Mono fonts
 FONT_DIR="/usr/share/fonts/google-fonts"
 
@@ -84,4 +61,17 @@ gsettings set org.gnome.settings-daemon.plugins.media-keys custom-keybindings "[
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybindings.custom0 name 'Terminal'
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybindings.custom0 command 'gnome-console'
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybindings.custom0 binding '<Control><Alt>T'
+
+# Install Proton VPN
+wget "https://repo.protonvpn.com/fedora-$(cat /etc/fedora-release | cut -d' ' -f 3)-stable/protonvpn-stable-release/protonvpn-stable-release-1.0.2-1.noarch.rpm"
+sudo dnf install -y ./protonvpn-stable-release-1.0.2-1.noarch.rpm && sudo dnf check-update --refresh
+sudo dnf install -y proton-vpn-gnome-desktop
+
+# Install Proton Bridge
+wget "https://proton.me/download/bridge/protonmail-bridge-3.13.0-1.x86_64.rpm"
+sudo dnf install -y ./protonmail-bridge-3.13.0-1.x86_64.rpm
+
+# Install Proton Pass
+wget "https://proton.me/download/PassDesktop/linux/x64/ProtonPass.rpm"
+sudo dnf install -y ./ProtonPass.rpm
 
