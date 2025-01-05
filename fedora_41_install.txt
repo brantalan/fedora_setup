@@ -1,0 +1,59 @@
+Fedora 41 Install:
+
+yaru-theme
+gnome-tweaks
+extension manager
+	- user themes
+	- dash to dock
+	- desktop icons
+	- app indicators
+	- tiling assistant
+gdm settings
+proton vpn
+proton bridge
+proton pass
+ente auth
+flatpaks
+	extension manager
+	firefox
+	thunderbird
+	gapless
+	fragments
+	
+restore backups for
+	gnome calendar - /home/brant/.config/evolution/sources
+	fastfetch - /home/brant/.config/fastfetch
+		
+
+gnome-tweaks settings
+	FONTS
+		https://fonts.google.com/specimen/Ubuntu+Sans
+		https://fonts.google.com/specimen/Ubuntu+Sans+Mono
+
+		ubuntu fonts from google fonts
+			interface text - ubuntu sans
+			document text - sans
+			monospace - ubuntu sans mono
+	
+		hinting
+			slight
+		antialiasing
+			subpixel
+		
+	windows
+		titlebar actions
+			double-click - toggle maximize
+			middle - lower
+			secondary - menu
+		click actions
+			attach modal - true
+		window focus - click to focus
+	
+
+		
+
+
+	
+	
+
+
