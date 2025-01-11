@@ -4,7 +4,7 @@
 sudo dnf update -y
 
 # Install additional packages
-sudo dnf install -y gnome-tweaks gnome-console fastfetch libappindicator-gtk3
+sudo dnf install -y gnome-tweaks fastfetch libappindicator-gtk3
 
 # Remove RPM-based Firefox
 sudo dnf remove -y firefox

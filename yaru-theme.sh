@@ -1,5 +1,7 @@
 #!/bin/bash
 
+#TODO - subpixel font rendering - more dash-to-dock settings
+
 # Install Yaru theme
 sudo dnf install -y yaru-theme
 
@@ -46,7 +48,7 @@ gsettings set org.gnome.desktop.background picture-options 'zoom'
 # Set GNOME fonts
 gsettings set org.gnome.desktop.interface font-name 'Ubuntu Sans 11'
 gsettings set org.gnome.desktop.interface document-font-name 'Sans 11'
-gsettings set org.gnome.desktop.interface monospace-font-name 'Ubuntu Mono 13'
+gsettings set org.gnome.desktop.interface monospace-font-name 'Ubuntu Sans Mono 13'
 
 # Set GNOME styles to Yaru
 gsettings set org.gnome.desktop.interface gtk-theme 'Yaru'
@@ -54,4 +56,5 @@ gsettings set org.gnome.desktop.interface icon-theme 'Yaru'
 gsettings set org.gnome.desktop.interface cursor-theme 'Yaru'
 gsettings set org.gnome.desktop.sound theme-name 'Yaru'
 gsettings set org.gnome.desktop.wm.preferences theme 'Yaru'
-
+gsettings set org.gnome.desktop.interface accent-color 'orange'
+gsettings set org.gnome.shell.extensions.user-them name 'Yaru-dark'
