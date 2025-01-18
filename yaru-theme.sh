@@ -1,25 +1,9 @@
 #!/bin/bash
 
-#TODO - subpixel font rendering - more dash-to-dock settings
-
-# Install Yaru theme
-sudo dnf install -y yaru-theme
-
-# Install Ubuntu Sans and Ubuntu Sans Mono fonts
-FONT_DIR="/usr/share/fonts/google-fonts"
-
-# Create the font directory if it doesn't exist
-sudo mkdir -p "$FONT_DIR"
-
-# Download Ubuntu Sans and Ubuntu Sans Mono fonts from GitHub
-sudo wget -P "$FONT_DIR" \
-    https://github.com/google/fonts/raw/main/ufl/ubuntusans/UbuntuSans-Italic%5Bwdth%2Cwght%5D.ttf \
-    https://github.com/google/fonts/raw/main/ufl/ubuntusans/UbuntuSans%5Bwdth%2Cwght%5D.ttf \
-    https://github.com/google/fonts/raw/main/ufl/ubuntusansmono/UbuntuSansMono-Italic%5Bwght%5D.ttf \
-    https://github.com/google/fonts/raw/main/ufl/ubuntusansmono/UbuntuSansMono%5Bwght%5D.ttf
-
-# Refresh the font cache
-sudo fc-cache -fv
+# Move .local/share files
+LOCALSHARE_DIR="$HOME/.local"
+mkdir -p "$LOCALSHARE_DIR"
+cp -r "$(dirname "$0")/local/share" "$LOCALSHARE_DIR"
 
 # Enable minimize and maximize buttons in GNOME
 gsettings set org.gnome.desktop.wm.preferences button-layout 'appmenu:minimize,maximize,close'
@@ -29,10 +13,13 @@ gsettings set org.gnome.desktop.wm.preferences action-double-click-titlebar 'tog
 gsettings set org.gnome.desktop.wm.preferences action-middle-click-titlebar 'lower'
 gsettings set org.gnome.desktop.wm.preferences action-right-click-titlebar 'menu'
 
+# Set GNOME default terminal to Ptyxis
+gsettings set org.gnome.desktop.default-applications.terminal exec ptyxis
+
 # Set GNOME shortcut for Ctrl+Alt+T to launch gnome-console
 gsettings set org.gnome.settings-daemon.plugins.media-keys custom-keybindings "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/']"
-gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ name 'Console'
-gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ command 'gnome-console'
+gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ name 'Ptyxis'
+gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ command 'ptyxis'
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ binding '<Control><Alt>T'
 
 # Copy wallpaper to ~/Pictures/Wallpapers and set it
@@ -57,4 +44,4 @@ gsettings set org.gnome.desktop.interface cursor-theme 'Yaru'
 gsettings set org.gnome.desktop.sound theme-name 'Yaru'
 gsettings set org.gnome.desktop.wm.preferences theme 'Yaru'
 gsettings set org.gnome.desktop.interface accent-color 'orange'
-gsettings set org.gnome.shell.extensions.user-them name 'Yaru-dark'
+#gsettings set org.gnome.shell.extensions.user-them name 'Yaru-dark'
